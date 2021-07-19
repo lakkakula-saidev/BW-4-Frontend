@@ -4,9 +4,12 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import MainPage from './components/MainPage';
 
+
 function App() {
   return (
-    <MainPage />
+    <div className="App">
+      <MainPage />
+    </div>
   );
 }
 
