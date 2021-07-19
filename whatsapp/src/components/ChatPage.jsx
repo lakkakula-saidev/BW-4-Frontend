@@ -1,5 +1,5 @@
 import React from "react";
-import MessageBox from "react-chat-elements";
+
 import "react-chat-elements/dist/main.css";
 import { Search, ThreeDotsVertical, EmojiLaughing, Paperclip, MicFill } from "react-bootstrap-icons";
 import { Container, Row, Col, Form } from "react-bootstrap";
