@@ -1,4 +1,5 @@
 import React from "react";
+import ChatPage from "./ChatPage";
 
 import { Container, Row, Col } from "react-bootstrap";
 import ChatItems from "./ChatItems";
@@ -8,18 +9,20 @@ import Login from "./Login";
 
 export default function MainPage() {
     return (
-        <Container>
+        <Container className="mainContianer">
             <Row>
                 <Col className="chatList col-md-4 ">
                     <TopLeftBar />
                     <Search />
                     <ChatItems />
                 </Col>
-                <Col>
-                    <chatPage />
+                <Col className="chatPage col-md-8">
+                    <ChatPage />
                 </Col>
             </Row>
             <Login />
         </Container>
     );
 }
+
+export default MainPage;
