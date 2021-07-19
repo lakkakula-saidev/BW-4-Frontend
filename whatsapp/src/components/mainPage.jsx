@@ -1,17 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
-
-export default function mainPage() {
+import { Col, Row, Container } from "react-bootstrap";
+import ChatPage from "./ChatPage";
+function MainPage() {
     return (
-        <Container>
+        <Container className="mainContianer">
             <Row>
-                <Col>
-                    <chatItems />
+                <Col className="chatList col-md-4 pr-0">
+                    {/* <ChatItems /> */}
+                    <p>Hi how are you</p>
                 </Col>
-                <Col>
-                    <chatPage />
+                <Col className="chatPage col-md-8">
+                    <ChatPage />
                 </Col>
             </Row>
         </Container>
     );
 }
+
+export default MainPage;
