@@ -1,17 +1,25 @@
 import React from "react";
-import { View, Text } from "react-native";
 
-export default function mainPage() {
+import {Container, Row, Col} from "react-bootstrap"
+import ChatItems from "./ChatItems";
+import Search from "./Search"
+import TopLeftBar from "./TopLeftBar";
+import Login from "./Login";
+
+export default function MainPage() {
     return (
         <Container>
             <Row>
                 <Col>
-                    <chatItems />
+                <TopLeftBar/>
+                <Search/>
+                    <ChatItems />
                 </Col>
                 <Col>
                     <chatPage />
                 </Col>
             </Row>
+            <Login/>
         </Container>
     );
 }
