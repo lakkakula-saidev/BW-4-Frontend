@@ -8,25 +8,16 @@ import {
   Form,
   NavDropdown,
   FormControl,
+
 } from "react-bootstrap";
+import { ThreeDots, ThreeDotsVertical } from "react-bootstrap-icons";
 
 export default function TopLeftBar() {
   return (
     <Navbar bg="light" expand="lg">
-    <Navbar.Brand href="#">Navbar scroll <i class="fas fa-circle"></i> </Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbarScroll" />
-    <Navbar.Collapse id="navbarScroll">
-      <Nav
-      
-        className="mr-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
-        
-       
-      </Nav>
-     
-    </Navbar.Collapse>
+    <Navbar.Brand href="#">  </Navbar.Brand>
+   
+    <div><ThreeDotsVertical/></div>
   </Navbar>
   );
 }
