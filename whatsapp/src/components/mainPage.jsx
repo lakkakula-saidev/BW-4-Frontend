@@ -6,8 +6,9 @@ import ChatItems from "./ChatItems";
 import Search from "./Search";
 import TopLeftBar from "./TopLeftBar";
 import Login from "./Login";
+import { withRouter } from "react-router-dom";
 
-export default function MainPage() {
+function MainPage() {
     return (
         <Container className="mainContianer">
             <Row>
@@ -20,9 +21,8 @@ export default function MainPage() {
                     <ChatPage />
                 </Col>
             </Row>
-            <Login />
         </Container>
     );
 }
 
-export default MainPage;
+export default withRouter(MainPage);
