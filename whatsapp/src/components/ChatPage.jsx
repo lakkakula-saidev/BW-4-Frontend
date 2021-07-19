@@ -12,7 +12,7 @@ function ChatPage() {
                 <div id="chatBoxDetails">
                     <div className="" role="button">
                         <div className="chatHeadImgDiv">
-                            <img src="https://source.unsplash.com/random" alt="" height="50px" />
+                            <img src="https://source.unsplash.com/random" /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
                         </div>
                     </div>
                     <div className="chatUser">
