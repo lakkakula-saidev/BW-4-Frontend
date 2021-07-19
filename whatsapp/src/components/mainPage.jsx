@@ -1,13 +1,14 @@
 import React from "react";
-import { View, Text } from "react-native";
-import {Container, Row, Col} from "react-bootstrap"
 
-export default function mainPage() {
+import {Container, Row, Col} from "react-bootstrap"
+import ChatItems from "./ChatItems";
+
+export default function MainPage() {
     return (
         <Container>
             <Row>
                 <Col>
-                    <chatItems />
+                    <ChatItems />
                 </Col>
                 <Col>
                     <chatPage />
