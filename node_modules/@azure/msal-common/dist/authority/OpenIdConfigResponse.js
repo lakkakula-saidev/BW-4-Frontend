@@ -1,0 +1,15 @@
+/*! @azure/msal-common v4.4.0 2021-06-29 */
+'use strict';
+/*
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
+ */
+function isOpenIdConfigResponse(response) {
+    return (response.hasOwnProperty("authorization_endpoint") &&
+        response.hasOwnProperty("token_endpoint") &&
+        response.hasOwnProperty("end_session_endpoint") &&
+        response.hasOwnProperty("issuer"));
+}
+
+export { isOpenIdConfigResponse };
+//# sourceMappingURL=OpenIdConfigResponse.js.map
