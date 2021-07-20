@@ -3,7 +3,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import { Button, Row, Col } from "react-bootstrap";
 import "../css/Login.css";
-import wa from "../";
+/* import wa from "../"; */
 
 const endpoint = process.env.REACT_APP_BACK_URL;
 
