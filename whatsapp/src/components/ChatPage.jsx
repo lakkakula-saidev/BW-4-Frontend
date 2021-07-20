@@ -1,13 +1,32 @@
 import React from "react";
-
+import { useState } from "react";
 import "react-chat-elements/dist/main.css";
 import { Search, ThreeDotsVertical, EmojiLaughing, Paperclip, MicFill } from "react-bootstrap-icons";
 import { Container, Row, Col, Form } from "react-bootstrap";
+import allActions from "../actions/index.js";
+import { useSelector, useDispatch } from "react-redux";
 
-function ChatPage() {
+/* const mapStateToProps = (state) => state;
+
+const mapDispatchToProps = (dispatch) => ({
+    fetch_Chat: (data) => {
+        dispatch(fetch_Chat(data));
+    }
+}); */
+
+function ChatPage(props) {
+    const [message, setMessage] = useState("");
+    const dispatch = useDispatch();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        dispatch(allActions.chatActions.fetch_Chat(message));
+        setMessage("");
+    }
+
     return (
         <Container className="mainContianer-chat">
-            <Row className="chatHeader">
+            <Row className="chatRow chatHeader">
                 {" "}
                 <div id="chatBoxDetails">
                     <div className="" role="button">
@@ -27,24 +46,59 @@ function ChatPage() {
                     </div>
                 </div>
             </Row>
-            <Row className="chatBody py-2">
-                <img src="https://source.unsplash.com/random" />
+            <Row className="chatRow chatBody ">
+                <div className="chatBody-childDiv py-2 ">
+                    <p className="py-4 ">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+                    <p className="py-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+                    <p className="py-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+                    <p className="py-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+
+                    <p className="py-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+                    <p className="py-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+
+                    <p className="py-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+                    <p className="py-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error
+                        pariatur in nobis animi, enim quasi.
+                    </p>
+                </div>
             </Row>
-            <Row className="chatFooter ">
-                <div className="chatFooterDetails py-1 px-3 ">
+            <Row className="chatRow chatFooter ">
+                <div className="chatFooterDetails py-2 px-3 ">
                     <div className="icon-width">
                         <EmojiLaughing size="25" />
                     </div>
                     <div>
                         <Paperclip size="25" />
                     </div>
-                    <Form className="messageInput">
+                    <Form className="messageInput" onSubmit={(e) => handleSubmit(e)}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Control type="email" placeholder="name@example.com" />
+                            <Form.Control type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="name@example.com" />
                         </Form.Group>
                     </Form>
                     <div>
-                        <MicFill size="25" />
+                        <MicFill size="22" />
                     </div>
                 </div>
             </Row>

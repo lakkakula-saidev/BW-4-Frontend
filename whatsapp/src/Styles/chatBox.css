@@ -1,27 +1,47 @@
-html, body
-{
-    height: 100vh;
+.mainContainer {
+    max-height: 100vh !important;
+    padding-right: 0px !important;
+}
+body {
+    background: rgb(218, 219, 213);
+    background: linear-gradient(0deg, rgba(218, 219, 213, 1) 73%, rgba(0, 150, 136, 1) 73%);
 }
 
-
-.mainContianer{
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+.mainContianerRow {
+    height: 90vh !important;
 }
 
-.chatList{
+.chatRow {
+    margin-left: 0 !important;
+}
+
+.chatHeader {
+    height: 7vh;
+    border-left: solid 1px #dadada;
+}
+
+.chatList {
     padding-right: 0px !important;
 }
 
-.chatPage{
+.chatPage {
     padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
-.chatBody{
-    height: 80%;
+.chatBody {
+    height: 80vh !important;
+    overflow-y: auto;
 }
 
-#chatBoxDetails{
+.chatBody-childDiv {
+    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+    min-height: 200px;
+    padding-left: 7.5% !important;
+    padding-right: 7.5% !important;
+}
+
+#chatBoxDetails {
     position: relative;
     z-index: 1000;
     box-sizing: border-box;
@@ -29,12 +49,10 @@ html, body
     flex-direction: row;
     align-items: center;
     width: 100%;
-    max-height: 59px  !important;
-    background-color: #EDEDED;
- 
+    background-color: #ededed;
 }
 
-.chatImageDiv{
+.chatImageDiv {
     position: absolute;
     top: 0;
     display: flex;
@@ -45,41 +63,48 @@ html, body
     height: 100%;
 }
 
-
-.chatUser{
+.chatUser {
     display: flex;
     flex-direction: column;
     padding-left: 10px;
     width: 80%;
 }
 
-.mainContianer-chat{
+.mainContianer-chat {
     width: 100%;
-    padding-right: 100px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.chatFooter {
+    background-color: #ededed;
+    border-left: solid 1px #dadada;
+    height: 7vh;
 }
 
-
-.chatFooterDetails{
-width: 100%;
+.chatFooterDetails {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-.messageInput{
+.messageInput {
+    position: relative;
+    top: 22.5%;
     flex-grow: 1;
 }
 
-.chatHeadImgDiv{
-width: 10%;
-}
-
-.chatHeadIconDiv{
+.chatHeadImgDiv {
     width: 10%;
 }
 
-.rounded-circle{
+.chatHeadIconDiv {
+    width: 10%;
+}
 
-border-radius:50%;
-width:40px;
-height:40px;
+.rounded-circle {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
 }

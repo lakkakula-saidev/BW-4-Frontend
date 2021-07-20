@@ -1,4 +1,9 @@
-export const fetch_Chat = (data) => {
+const fetch_Chat = (data) => ({
+    type: 'ADD_FETCH_RESULTS',
+    payload: data
+})
+
+/* export const fetch_Chat = (data) => {
     return async (dispatch) => {
 
         const apiUrl = process.env.REACT_APP_ENDPOINT;
@@ -45,4 +50,6 @@ export const fetch_Chat = (data) => {
             })
         }
     }
-}
+} */
+
+export default { fetch_Chat }

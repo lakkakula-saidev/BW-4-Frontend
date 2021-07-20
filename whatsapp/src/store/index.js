@@ -3,6 +3,7 @@ import { userReducer } from '../reducers/userReducer.js'
 import { chatReducer } from '../reducers/chatReducer'
 /* import { queueReducer } from '../reducers/queueReducer' */
 import thunk from "redux-thunk";
+import React from 'react'
 
 
 export const initialState = {
@@ -26,6 +27,7 @@ const combineReducer = combineReducers({
     chat: chatReducer
 
 })
+const MyContext = React.createContext()
 
 const configureStore = () => createStore(combineReducer, composeEnhancers(applyMiddleware(thunk)))
 

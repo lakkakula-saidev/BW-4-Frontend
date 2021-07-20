@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 function MainPage() {
     return (
-        <Container className="mainContianer">
-            <Row>
+        <Container className="mainContainer">
+            <Row className="mainContianerRow py-4">
                 <Col className="chatList col-md-4 ">
                     <TopLeftBar />
                     <Search />
