@@ -1,11 +1,12 @@
-
 import React, { useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import { Button, Row, Col } from "react-bootstrap";
 import "../css/Login.css";
-import { useSelector } from "react-redux";
 
+const endpoint = process.env.REACT_APP_BACK_URL;
+
+axios.defaults.withCredentials = true;
 export default function Login() {
     const [firstname, setFirstName] = useState("");
     const [surname, setSurname] = useState("");
@@ -16,7 +17,7 @@ export default function Login() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        fetch("https://bw4-be.herokuapp.com/users/register", {
+        fetch(endpoint + "/users/register", {
             method: "POST",
             body: JSON.stringify({ firstname, surname, email, password }),
             headers: { "Content-Type": "application/json" }
@@ -32,17 +33,10 @@ export default function Login() {
     }
 
     async function handleLogin() {
-        {
-            fetch("https://bw4-be.herokuapp.com/users/login", {
-                method: "POST",
-                body: JSON.stringify({ email, password }),
-                headers: { "Content-Type": "application/json" }
-            }).then((response) => console.log(response.json()));
+        let res = await axios.post(endpoint + "/users/login", { email, password });
+        if (typeof res === "object" && res !== null) {
+            let me = await axios.get(endpoint + "/users/login/me");
         }
-
-        const user = await axios.get("https://bw4-be.herokuapp.com/users/me", {
-            withCredentials: true
-        });
     }
 
     return (

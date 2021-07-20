@@ -1,8 +1,8 @@
-import logo from './logo.svg';
+
 import './Styles/chatBox.css'
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
-import MainPage from './components/MainPage';
+import MainPage from './components/Mainpage';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginPage from './components/Login'
 

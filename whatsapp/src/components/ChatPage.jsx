@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import "react-chat-elements/dist/main.css";
 import { Search, ThreeDotsVertical, EmojiLaughing, Paperclip, MicFill } from "react-bootstrap-icons";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Form } from "react-bootstrap";
 import allActions from "../actions/index.js";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 /* const mapStateToProps = (state) => state;
 

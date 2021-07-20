@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { userReducer } from '../reducers/userReducer.js'
 import { chatReducer } from '../reducers/chatReducer'
-/* import { queueReducer } from '../reducers/queueReducer' */
 import thunk from "redux-thunk";
 import React from 'react'
 
