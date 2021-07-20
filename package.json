@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "react-chat-elements": "^10.15.0",
-    "react-icons": "^2.2.7",
-    "redux": "^4.1.0"
-  }
-}
