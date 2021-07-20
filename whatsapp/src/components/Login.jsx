@@ -5,6 +5,8 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import { Button, Row, Col } from "react-bootstrap";
 import "../css/Login.css";
+import wa from "../"
+
 
 export default function Login() {
   const [firstname, setFirstName] = useState("");
@@ -32,21 +34,22 @@ export default function Login() {
   }
 
  async function handleLogin (){
-    {
-      fetch("https://bw4-be.herokuapp.com/users/login", {
+    
+      /*fetch("https://bw4-be.herokuapp.com/users/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
-      }).then((response) => console.log(response.json()));
-    }
+      }).then((response) => console.log(response.json()));*/
+    
+      const user = await axios.post("https://bw4-be.herokuapp.com/users/login", { email, password })
+      console.log(user)
 
-   const user = await axios.get("https://bw4-be.herokuapp.com/users/me", {
-      withCredentials: true,
-    });
+   const test = await axios.get("https://bw4-be.herokuapp.com/users/me");
   }
 
   return (
     <div className='Login'>
+      <img src="whatsapp/public/kisspng-whatsapp-logo-download-5b3c006e531a41.6393161315306589263404.jpg" alt=""/>
       <Form onSubmit={handleSubmit}>
         <Form.Group size='lg' controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -85,24 +88,23 @@ export default function Login() {
         </Form.Group>
         <Row>
           <Col>
-            <Button block size='lg' type='submit'>
+            <Button className="b" block size='lg' type='submit'>
               Register
             </Button>
           </Col>
           <Col>
-            <Button block size='lg' onClick={() => handleLogin()}>
+            <Button className="b" block size='lg' onClick={() => handleLogin()}>
               Login
             </Button>
           </Col>
-        </Row>
-      </Form>
-      <Row className='justify-content-md-center'>
-        <Col>
-          <Button block size='lg' type='submit' disabled={!validateForm()}>
+          <Col>
+          <Button className="b" block size='lg' type='submit' >
             Login with Google
           </Button>
         </Col>
-      </Row>
+        </Row>
+      </Form>
+     
     </div>
   );
 }
