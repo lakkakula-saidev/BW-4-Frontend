@@ -2,7 +2,7 @@
 import './Styles/chatBox.css'
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
-import MainPage from './components/Mainpage';
+import MainPage from './components/MainPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginPage from './components/Login'
 
