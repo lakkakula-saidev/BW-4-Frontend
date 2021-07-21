@@ -111,3 +111,14 @@ body {
     width: 45px;
     height: 45px;
 }
+
+.bkBox{
+    background-color: white;
+    height: 79.1vh !important;
+    
+}
+
+.chatHeadImgDiv1 {
+    width: 10%;
+    margin-left: 8px;
+}
