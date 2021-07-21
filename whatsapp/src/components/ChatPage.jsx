@@ -1,11 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "react-chat-elements/dist/main.css";
 import { Search, ThreeDotsVertical, EmojiLaughing, Paperclip, MicFill } from "react-bootstrap-icons";
 import { Container, Row, Form } from "react-bootstrap";
 import allActions from "../actions/index.js";
 import { useDispatch } from "react-redux";
-import io from "socket.io-client";
 
 /* const mapStateToProps = (state) => state;
 
@@ -18,6 +17,16 @@ const mapDispatchToProps = (dispatch) => ({
 function ChatPage(props) {
     const [message, setMessage] = useState("");
     const dispatch = useDispatch();
+
+    function updateScroll() {
+        let objDiv = document.getElementById("chatBody");
+        objDiv.scrollTop = objDiv.offsetHeight;
+        console.log("I am scrolling");
+    }
+
+    useEffect(() => {
+        updateScroll();
+    }, []);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -47,7 +56,7 @@ function ChatPage(props) {
                     </div>
                 </div>
             </Row>
-            <Row className="chatRow chatBody ">
+            <Row className="chatRow  " id="chatBody">
                 <div className="chatBody-childDiv py-2 ">
                     <p className="py-4 ">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae aliquid error

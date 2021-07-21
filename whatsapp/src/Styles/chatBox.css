@@ -6,6 +6,9 @@ body {
     background: rgb(218, 219, 213);
     background: linear-gradient(0deg, rgba(218, 219, 213, 1) 73%, rgba(0, 150, 136, 1) 73%);
 }
+.profileForm {
+    background-color: #ededed;
+}
 
 .mainContianerRow {
     height: 90vh !important;
@@ -29,7 +32,7 @@ body {
     padding-right: 0px !important;
 }
 
-.chatBody {
+#chatBody {
     height: 80vh !important;
     overflow-y: auto;
 }

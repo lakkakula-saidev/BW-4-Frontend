@@ -6,6 +6,7 @@ import Search from "./Search";
 import TopLeftBar from "./TopLeftBar";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import Profile from "./Profile";
 
 const mapStateToProps = (state) => state;
 
@@ -23,7 +24,8 @@ function MainPage() {
                     <TopLeftBar />
                     <Search />
                     <div /* onClick={() => this.props.fetch_Chat()} */>
-                        <ChatItems />
+                        {/* <ChatItems /> */}
+                        <Profile />
                     </div>
                 </Col>
                 <Col className="chatPage col-md-8">

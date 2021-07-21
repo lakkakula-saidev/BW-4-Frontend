@@ -29,21 +29,16 @@ export default function Login() {
         } catch (error) {
             console.log(error, "I am here");
         }
-        if (firstname) {
+        if (user) {
             // All redux store actions are to be performed to get the 'User' and his 'Chat' details
-
             history.push("/");
         }
     }
 
-    async function handleLogin() {
-        try {
-            let res = await axios.post(endpoint + "/users/login", { email, password }, { withCredentials: true });
-            if (typeof res === "object" && res !== null) {
-                let me = await axios.get(endpoint + "/users/me", { withCredentials: true });
-            }
-        } catch (error) {
-            console.log(error);
+    function handleLogin() {
+        dispatch(allActions.userActions.login_User({ email, password }));
+        if (user) {
+            history.push("/");
         }
     }
 

@@ -13,7 +13,7 @@ const register_User = (data) => {
                 payload: true,
             })
             response = await axios.post(endpoint + "/users/register", { ...data }); // data: {firstname, surname, email, password}
-            if (response.ok) {
+            if (response) {
 
                 dispatch({
                     type: 'SET_USER',
@@ -52,20 +52,77 @@ const register_User = (data) => {
 const login_User = (data) => {
     return async (dispatch) => {
 
-        const apiUrl = process.env.REACT_APP_ENDPOINT;
-        const endpoint = `${apiUrl}${data}`;
-        let response;
+        const endpoint = process.env.REACT_APP_BACK_URL;
+
+        let res;
         try {
             dispatch({
                 type: 'SET_LOADING',
                 payload: true,
             })
-            response = await axios.post(endpoint + "/users/login", { ...data }); // data: {email, password}
-            if (response.ok) {
+            res = await axios.post(endpoint + "/users/login", { ...data }, { withCredentials: true }); // data: {email, password}
+
+            if (typeof res.data === "object" && res !== null) {
+                let me = await axios.get(endpoint + "/users/me", { withCredentials: true });
+                if (me) {
+                    console.log('I am setting store of user')
+                    dispatch({
+                        type: 'SET_USER',
+                        payload: me.data
+                    })
+                    dispatch({
+                        type: 'SET_LOADING',
+                        payload: false,
+                    })
+                }
+                else {
+                    console.log('Error has Occured!!')
+                    dispatch({
+                        type: 'SET_LOADING',
+                        payload: false,
+                    })
+                    dispatch({
+                        type: 'SET_ERROR',
+                        payload: true,
+                    })
+                }
+            } else {
+
+            }
+
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type: 'SET_LOADING',
+                payload: false,
+            })
+            dispatch({
+                type: 'SET_ERROR',
+                payload: true,
+            })
+        }
+    }
+}
+
+const update_User = (data) => {
+    console.log('I am updating the user')
+    return async (dispatch) => {
+
+        const endpoint = process.env.REACT_APP_BACK_URL;
+        let response;
+        let res;
+        try {
+            dispatch({
+                type: 'SET_LOADING',
+                payload: true,
+            })
+
+            let res = await axios.put(endpoint + "/users/me", { ...data }, { withCredentials: true });
+            if (typeof res.data === "object" && res !== null) {
 
                 dispatch({
                     type: 'SET_USER',
-                    payload: response.data
+                    payload: res.data
                 })
                 dispatch({
                     type: 'SET_LOADING',
@@ -83,6 +140,8 @@ const login_User = (data) => {
                     payload: true,
                 })
             }
+
+
         } catch (error) {
             console.log(error);
             dispatch({
@@ -97,4 +156,4 @@ const login_User = (data) => {
     }
 }
 
-export default { login_User, register_User }
+export default { login_User, register_User, update_User }
