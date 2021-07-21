@@ -70,14 +70,15 @@ export default function Login() {
                             Login
                         </Button>
                     </Col>
-                </Row>
-            </Form>
-            <Row className="justify-content-md-center">
-                <Col>
-                    <Button block size="lg" type="submit" disabled={!validateForm()}>
+                    <Col>
+                    <Button block size="lg" type="submit" >
                         Login with Google
                     </Button>
                 </Col>
+                </Row>
+            </Form>
+            <Row className="justify-content-md-center">
+                
             </Row>
         </div>
     );
