@@ -6,9 +6,13 @@ import MainPage from './components/MainPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginPage from './components/Login'
 import { useSelector } from 'react-redux'
+import axios from 'axios';
+
+
 
 function App() {
 
+  axios.defaults.withCredentials = true
   const user = useSelector(state => state.user.currentUser)
 
   if (Object.keys(user).length >= 2) {

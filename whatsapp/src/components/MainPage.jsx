@@ -8,14 +8,6 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 
-const mapStateToProps = (state) => state;
-
-const mapDispatchToProps = (dispatch) => ({
-    /* fetch_Chat: (data) => {
-        dispatch(fetch_Chat(data));
-    }*/
-});
-
 function MainPage() {
     return (
         <Container className="mainContainer">
@@ -37,4 +29,4 @@ function MainPage() {
     );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MainPage));
+export default withRouter(MainPage);
