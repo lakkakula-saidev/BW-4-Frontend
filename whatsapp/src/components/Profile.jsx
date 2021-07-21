@@ -16,6 +16,7 @@ export default function Profile() {
         dispatch(allActions.userActions.update_User({ username, surname }));
     }
     function handleImageChange() {
+        console.log("heelo you should only see me once ideally");
         inputFile.current.click();
         if (inputFile !== null) {
             const formData = new FormData();
