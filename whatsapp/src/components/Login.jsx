@@ -3,12 +3,16 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import { Button, Row, Col } from "react-bootstrap";
 import "../css/Login.css";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import allActions from "../actions/index.js";
 /* import wa from "../"; */
 
 const endpoint = process.env.REACT_APP_BACK_URL;
 
 export default function Login() {
+    const user = useSelector((store) => store.user.currentUser);
+    const dispatch = useDispatch();
     let history = useHistory();
     const [firstname, setFirstName] = useState("");
     const [surname, setSurname] = useState("");
@@ -20,20 +24,21 @@ export default function Login() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            let user = await axios.post(endpoint + "/users/register", { firstname, surname, email, password });
+            /*  let user = await axios.post(endpoint + "/users/register", { firstname, surname, email, password }); */
+            dispatch(allActions.userActions.register_User({ firstname, surname, email, password }));
         } catch (error) {
             console.log(error, "I am here");
         }
         if (firstname) {
             // All redux store actions are to be performed to get the 'User' and his 'Chat' details
-            console.log("i am not redirected");
+
             history.push("/");
         }
     }
 
     async function handleLogin() {
         try {
-            let res = await axios.post(endpoint + "/users/login", { email, password });
+            let res = await axios.post(endpoint + "/users/login", { email, password }, { withCredentials: true });
             if (typeof res === "object" && res !== null) {
                 let me = await axios.get(endpoint + "/users/me", { withCredentials: true });
             }
@@ -73,15 +78,13 @@ export default function Login() {
                         </Button>
                     </Col>
                     <Col>
-                    <Button block size="lg" type="submit" >
-                        Login with Google
-                    </Button>
-                </Col>
+                        <Button block size="lg" type="submit">
+                            Login with Google
+                        </Button>
+                    </Col>
                 </Row>
             </Form>
-            <Row className="justify-content-md-center">
-                
-            </Row>
+            <Row className="justify-content-md-center"></Row>
         </div>
     );
 }
