@@ -28,10 +28,12 @@ export default function ChatItems() {
     // 4. Setting *dogImage* to the image url that we received from the response above
   }, []);
 
-  function Search () {
+  function Search (e) {
+    setQuery(e.target.value)
     axios
     .get(endpoint + "/users?" + query, { withCredentials: true })
-    .then((response) => setListUsers(response.data));
+    .then((response) => {console.log(response.data);
+         setListUsers(response.data)});
 
   }
 
@@ -40,7 +42,9 @@ export default function ChatItems() {
       <Navbar bg='light' expand='lg'>
         <div className='chatHeadImgDiv1' role='button'>
           <div className='chatHeadImgDiv1'>
-            <img
+            <img onClick={() => {
+            isClicked ? setisClicked(false) : setisClicked(true);
+          }}
               src='https://source.unsplash.com/random'
               /* style={{ borderRadius: "50%" }} */ className='rounded-circle'
               alt=''
@@ -50,14 +54,12 @@ export default function ChatItems() {
 
         <ThreeDotsVertical
           className='chatHeadImgDiv1'
-          onClick={() => {
-            isClicked ? setisClicked(false) : setisClicked(true);
-          }}
+          
         />
       </Navbar>
       <div className='dov'>
         <Form className=' search'>
-        <Form.Control autoFocus type="query" value={query} onChange={(e) => setQuery(e.target.value)} />
+        <Form.Control autoFocus type="query" value={query} onChange={(e) => Search(e)} />
         </Form>
       </div>
 
