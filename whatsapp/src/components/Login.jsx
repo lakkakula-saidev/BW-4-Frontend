@@ -29,7 +29,7 @@ export default function Login() {
         } catch (error) {
             console.log(error, "I am here");
         }
-        if (user) {
+        if (user.currentUser && Object.keys(user.currentUser).length !== 0) {
             // All redux store actions are to be performed to get the 'User' and his 'Chat' details
             history.push("/");
         }
@@ -37,7 +37,7 @@ export default function Login() {
 
     function handleLogin() {
         dispatch(allActions.userActions.login_User({ email, password }));
-        if (user) {
+        if (user.currentUser && Object.keys(user.currentUser).length !== 0) {
             history.push("/");
         }
     }

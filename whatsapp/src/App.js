@@ -15,7 +15,7 @@ function App() {
   axios.defaults.withCredentials = true
   const user = useSelector(state => state.user.currentUser)
 
-  if (Object.keys(user).length >= 2) {
+  if (user.currentUser && Object.keys(user.currentUser).length === 0) {
     return <Router>
       <Route render={routerProps => <MainPage {...routerProps} />} exact path='/' />
     </Router>
