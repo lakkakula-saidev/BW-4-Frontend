@@ -35,7 +35,7 @@ export default function ChatItems() {
                     </div>
 
         
-          <ThreeDotsVertical onClick={()=>{isClicked ? setisClicked(false):setisClicked(true)}} />
+          <ThreeDotsVertical className="chatHeadImgDiv1" onClick={()=>{isClicked ? setisClicked(false):setisClicked(true)}} />
         
       </Navbar>
       <Search />
