@@ -42,6 +42,12 @@ export default function Login() {
         }
     }
 
+    function handleGoogleLogin() {
+        dispatch(allActions.userActions.login_Google_User());
+        /*   if (user) {
+            history.push("/");
+        } */
+    }
     return (
         <div className="Login">
             <Form onSubmit={handleSubmit}>
@@ -73,7 +79,7 @@ export default function Login() {
                         </Button>
                     </Col>
                     <Col>
-                        <Button block size="lg" type="submit">
+                        <Button block size="lg" onClick={() => handleGoogleLogin()}>
                             Login with Google
                         </Button>
                     </Col>
