@@ -44,3 +44,14 @@
     margin-top: 5px;
     margin-left: 25px;
   }
+
+  .search{
+    border-radius: 50px !important;
+    padding: 4px;
+    
+    
+  }
+
+  .dov {
+    background-color: #ededed;
+  }

@@ -1,15 +1,16 @@
 import React from "react";
+import "../css/Login.css";
 
-import { Navbar, Form, FormControl } from "react-bootstrap";
+import { Navbar, Form, FormControl, Div } from "react-bootstrap";
 
 export default function Search() {
     return (
-        <Navbar bg="light" expand="lg">
-            <Navbar.Toggle aria-controls="navbarScroll" />
+        
+           <div className="dov"> 
 
-            <Form className="d-flex">
+            <Form className=" search">
                 <FormControl type="search" placeholder="Search or Start a New Chat" className="mr-2" aria-label="Search" />
             </Form>
-        </Navbar>
+            </div>
     );
 }
