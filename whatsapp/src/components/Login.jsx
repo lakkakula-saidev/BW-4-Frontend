@@ -3,12 +3,13 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import { Button, Row, Col } from "react-bootstrap";
 import "../css/Login.css";
+import { Redirect, useHistory } from "react-router-dom";
 /* import wa from "../"; */
 
 const endpoint = process.env.REACT_APP_BACK_URL;
 
-axios.defaults.withCredentials = true;
 export default function Login() {
+    let history = useHistory();
     const [firstname, setFirstName] = useState("");
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
@@ -16,27 +17,28 @@ export default function Login() {
 
     function validateForm() {}
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        fetch(endpoint + "/users/register", {
-            method: "POST",
-            body: JSON.stringify({ firstname, surname, email, password }),
-            headers: { "Content-Type": "application/json" }
-        })
-            .then((res) => res.json())
-
-            .then((data) => {
-                setFirstName(data.firstname);
-                setSurname(data.surname);
-                setEmail(data.email);
-                setPassword(data.password);
-            });
+        try {
+            let user = await axios.post(endpoint + "/users/register", { firstname, surname, email, password });
+        } catch (error) {
+            console.log(error, "I am here");
+        }
+        if (firstname) {
+            // All redux store actions are to be performed to get the 'User' and his 'Chat' details
+            console.log("i am not redirected");
+            history.push("/");
+        }
     }
 
     async function handleLogin() {
-        let res = await axios.post(endpoint + "/users/login", { email, password });
-        if (typeof res === "object" && res !== null) {
-            let me = await axios.get(endpoint + "/users/login/me");
+        try {
+            let res = await axios.post(endpoint + "/users/login", { email, password });
+            if (typeof res === "object" && res !== null) {
+                let me = await axios.get(endpoint + "/users/me", { withCredentials: true });
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 

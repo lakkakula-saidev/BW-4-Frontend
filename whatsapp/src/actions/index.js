@@ -1,8 +1,8 @@
 import chatActions from './fetchChat'
-/* import userActions from './userActions' */
+import userActions from './userActions'
 
 const allActions = {
-    chatActions
+    chatActions, userActions
 }
 
 export default allActions
