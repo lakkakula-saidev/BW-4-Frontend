@@ -4,8 +4,8 @@ import axios from 'axios'
 const register_User = (data) => {
     return async (dispatch) => {
 
-        const apiUrl = process.env.REACT_APP_ENDPOINT;
-        const endpoint = `${apiUrl}${data}`;
+
+        const endpoint = process.env.REACT_APP_BACK_URL;
         let response;
         try {
             dispatch({

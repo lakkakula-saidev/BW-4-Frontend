@@ -5,6 +5,7 @@ import { Search, ThreeDotsVertical, EmojiLaughing, Paperclip, MicFill } from "re
 import { Container, Row, Form } from "react-bootstrap";
 import allActions from "../actions/index.js";
 import { useDispatch } from "react-redux";
+import io from "socket.io-client";
 
 /* const mapStateToProps = (state) => state;
 
