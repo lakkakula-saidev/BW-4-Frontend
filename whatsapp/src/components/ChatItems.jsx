@@ -19,6 +19,7 @@ export default function ChatItems() {
   const [listUsers, setListUsers] = useState([]);
   const [isClicked, setisClicked] = useState(true);
   const [query, setQuery] = useState("");
+  const [searched, setSearched] = useState(false)
 
   useEffect(() => {
     axios
@@ -35,8 +36,62 @@ export default function ChatItems() {
     .get(endpoint + "/users?firstname=" + query, { withCredentials: true })
     .then((response) => {console.log(response.data);
          setListUsers(response.data.response)});
+         setSearched(true)
 
   }
+if(!searched){
+  return (
+    <div>
+      <Navbar bg='light' expand='lg'>
+        <div className='chatHeadImgDiv1' role='button'>
+          <div className='chatHeadImgDiv1'>
+            <img onClick={() => {
+            isClicked ? setisClicked(false) : setisClicked(true);
+          }}
+              src='https://source.unsplash.com/random'
+              /* style={{ borderRadius: "50%" }} */ className='rounded-circle'
+              alt=''
+            />
+          </div>
+        </div>
+
+        <ThreeDotsVertical
+          className='chatHeadImgDiv1'
+          
+        />
+      </Navbar>
+      <div className='dov'>
+        <Form className=' search'>
+        <Form.Control autoFocus type="query" value={query} onChange={(e) => Search(e)} />
+        </Form>
+      </div>
+
+      
+
+      {isClicked ? 
+      users.map(user =>(<ChatList
+        className='chat-list'
+        dataSource={[
+          {
+            avatar: "https://source.unsplash.com/random",
+            alt: "Reactjs",
+            title: user.firstname,
+            subtitle: "What are you doing?",
+            date: new Date(),
+            unread: 0,
+          },
+        ]}
+      />))
+      
+        
+       : 
+        <Profile />
+      }
+    </div>
+  );
+}
+
+else {
 
   return (
     <div>
@@ -64,14 +119,16 @@ export default function ChatItems() {
         </Form>
       </div>
 
+      
+
       {isClicked ? 
-      users.map(user =>(<ChatList
+      listUsers.map(user =>(<ChatList
         className='chat-list'
         dataSource={[
           {
             avatar: "https://source.unsplash.com/random",
             alt: "Reactjs",
-            title: "{ user }",
+            title: user.firstname,
             subtitle: "What are you doing?",
             date: new Date(),
             unread: 0,
@@ -85,4 +142,8 @@ export default function ChatItems() {
       }
     </div>
   );
+
+
+
+}
 }
