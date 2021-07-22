@@ -20,9 +20,12 @@ body {
 .chatRow {
     margin-left: 0 !important;
 }
+.chatItemHeader {
+    height: 8vh;
+}
 
 .chatHeader {
-    height: 7vh;
+    height: 8vh;
     border-left: solid 1px #dadada;
 }
 
@@ -36,7 +39,7 @@ body {
 }
 
 #chatBody {
-    height: 80vh !important;
+    height: 78vh !important;
     overflow-y: auto;
 }
 
@@ -135,4 +138,14 @@ body {
 
 .profileForm {
     width: 80%;
+}
+
+.chatItemBody {
+    height: 85vh !important;
+    background-color: white;
+}
+
+.searchBarUsers:focus {
+    outline: none !important;
+    box-shadow: none !important;
 }

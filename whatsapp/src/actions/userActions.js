@@ -61,7 +61,7 @@ const login_User = (data) => {
             })
             res = await axios.post(endpoint + "/users/login", { ...data }, { withCredentials: true }); // data: {email, password}
 
-            if (typeof res.data === "object" && res !== null) {
+            if (typeof res.data === "object" && res.data !== null) {
                 let me = await axios.get(endpoint + "/users/me", { withCredentials: true });
                 if (me) {
                     console.log('I am setting store of user')
@@ -115,7 +115,7 @@ const login_Google_User = (data) => {
             })
             res = await axios.get(endpoint + "/users/login/oauth/google/login", { withCredentials: true }); // data: {email, password}
 
-            if (typeof res.data === "object" && res !== null) {
+            if (typeof res.data === "object" && res.data !== null) {
                 let me = await axios.get(endpoint + "/users/me", { withCredentials: true });
                 if (me) {
                     console.log('I am setting store of user')
@@ -171,7 +171,7 @@ const update_User = (data) => {
             })
 
             res = await axios.put(endpoint + "/users/me", { ...data });
-            if (typeof res.data === "object" && res !== null) {
+            if (typeof res.data === "object" && res.data !== null) {
 
                 dispatch({
                     type: 'SET_USER',
@@ -223,7 +223,7 @@ const update_Avatar = (data) => {
             })
 
             res = await axios.post(endpoint + "/users/me/avatar", data);
-            if (typeof res.data === "object" && res !== null) {
+            if (typeof res.data === "object" && res.data !== null) {
 
                 dispatch({
                     type: 'SET_USER',
