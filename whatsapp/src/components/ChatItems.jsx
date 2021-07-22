@@ -31,7 +31,7 @@ export default function ChatItems() {
   function Search (e) {
     setQuery(e.target.value)
     axios
-    .get(endpoint + "/users?" + query, { withCredentials: true })
+    .get(endpoint + "/users?firstname=" + query, { withCredentials: true })
     .then((response) => {console.log(response.data);
          setListUsers(response.data)});
 
