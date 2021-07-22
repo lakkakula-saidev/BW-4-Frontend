@@ -6,8 +6,11 @@ body {
     background: rgb(218, 219, 213);
     background: linear-gradient(0deg, rgba(218, 219, 213, 1) 73%, rgba(0, 150, 136, 1) 73%);
 }
-.profileForm {
+.profileDiv {
     background-color: #ededed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .mainContianerRow {
@@ -102,6 +105,9 @@ body {
     width: 10%;
 }
 
+.profileImgDiv {
+    width: 40%;
+}
 .chatHeadIconDiv {
     width: 10%;
 }
@@ -112,13 +118,21 @@ body {
     height: 45px;
 }
 
-.bkBox{
+.bkBox {
     background-color: white;
     height: 79.1vh !important;
-    
 }
 
 .chatHeadImgDiv1 {
     width: 10%;
     margin-left: 8px;
+}
+.profile-rounded-circle {
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+}
+
+.profileForm {
+    width: 80%;
 }

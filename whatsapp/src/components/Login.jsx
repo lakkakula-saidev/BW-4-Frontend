@@ -29,7 +29,7 @@ export default function Login() {
         } catch (error) {
             console.log(error, "I am here");
         }
-        if (user) {
+        if (user.currentUser && Object.keys(user.currentUser).length !== 0) {
             // All redux store actions are to be performed to get the 'User' and his 'Chat' details
             history.push("/");
         }
@@ -37,11 +37,17 @@ export default function Login() {
 
     function handleLogin() {
         dispatch(allActions.userActions.login_User({ email, password }));
-        if (user) {
+        if (user.currentUser && Object.keys(user.currentUser).length !== 0) {
             history.push("/");
         }
     }
 
+    function handleGoogleLogin() {
+        dispatch(allActions.userActions.login_Google_User());
+        /*   if (user) {
+            history.push("/");
+        } */
+    }
     return (
         <div className="Login">
             <Form onSubmit={handleSubmit}>
@@ -73,7 +79,7 @@ export default function Login() {
                         </Button>
                     </Col>
                     <Col>
-                        <Button block size="lg" type="submit">
+                        <Button block size="lg" onClick={() => handleGoogleLogin()}>
                             Login with Google
                         </Button>
                     </Col>
