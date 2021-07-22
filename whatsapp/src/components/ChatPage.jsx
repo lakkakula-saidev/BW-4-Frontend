@@ -104,7 +104,7 @@ function ChatPage(props) {
                     </div>
                     <Form className="messageInput" onSubmit={(e) => handleSubmit(e)}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Control type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="name@example.com" />
+                            <Form.Control type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Send message" />
                         </Form.Group>
                     </Form>
                     <div>
