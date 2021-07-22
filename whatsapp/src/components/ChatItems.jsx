@@ -30,7 +30,7 @@ export default function ChatItems() {
     async function Search(e) {
         setQuery(e.target.value);
         console.log(query);
-        dispatch(allActions.searchActions.search_Users(query));
+        await dispatch(allActions.searchActions.search_Users(query));
         setListUsers(searchUsers);
     }
 
@@ -40,9 +40,7 @@ export default function ChatItems() {
                 <div className="chatHeadImgDiv1" role="button">
                     <div className="chatHeadImgDiv1">
                         <img
-                            onClick={() => {
-                                isClicked ? setisClicked(false) : setisClicked(true);
-                            }}
+                           
                             src="https://source.unsplash.com/random"
                             /* style={{ borderRadius: "50%" }} */ className="rounded-circle"
                             alt=""
@@ -50,7 +48,9 @@ export default function ChatItems() {
                     </div>
                 </div>
 
-                <ThreeDotsVertical className="chatHeadImgDiv1" />
+                <ThreeDotsVertical className="chatHeadImgDiv1"  onClick={() => {
+                                isClicked ? setisClicked(false) : setisClicked(true);
+                            }} />
             </Navbar>
 
             {isClicked ? (

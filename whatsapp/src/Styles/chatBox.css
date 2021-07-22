@@ -101,7 +101,9 @@ body {
 .messageInput {
     position: relative;
     top: 22.5%;
+    right: 30%;
     flex-grow: 1;
+    margin: -150px;
 }
 
 .chatHeadImgDiv {
@@ -148,4 +150,9 @@ body {
 .searchBarUsers:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+
+.profileImgDiv1 {
+    width: 15%;
+   
 }
