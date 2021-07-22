@@ -37,7 +37,6 @@ function ChatPage(props) {
     return (
         <Container className="mainContianer-chat">
             <Row className="chatRow chatHeader">
-                {" "}
                 <div id="chatBoxDetails">
                     <div className="" role="button">
                         <div className="chatHeadImgDiv">

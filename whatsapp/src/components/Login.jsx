@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Form from "react-bootstrap/Form";
 import { Button, Row, Col } from "react-bootstrap";
 import "../css/Login.css";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import allActions from "../actions/index.js";
-/* import wa from "../"; */
 
 const endpoint = process.env.REACT_APP_BACK_URL;
 
 export default function Login() {
-    const user = useSelector((store) => store.user.currentUser);
+    const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
     let history = useHistory();
     const [firstname, setFirstName] = useState("");
@@ -19,8 +17,8 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function validateForm() {}
-
+    /*     function validateForm() {}
+     */
     async function handleSubmit(event) {
         event.preventDefault();
         try {
@@ -29,15 +27,19 @@ export default function Login() {
         } catch (error) {
             console.log(error, "I am here");
         }
-        if (user.currentUser && Object.keys(user.currentUser).length !== 0) {
+        if (Object.keys(user.currentUser).length > 0 && user.currentUser._id) {
             // All redux store actions are to be performed to get the 'User' and his 'Chat' details
+            console.log("1");
             history.push("/");
+            console.log("2");
         }
     }
 
     function handleLogin() {
         dispatch(allActions.userActions.login_User({ email, password }));
-        if (user.currentUser && Object.keys(user.currentUser).length !== 0) {
+        if (Object.keys(user.currentUser).length > 0 && user.currentUser._id) {
+            // All redux store actions are to be performed to get the 'User' and his 'Chat' details
+
             history.push("/");
         }
     }

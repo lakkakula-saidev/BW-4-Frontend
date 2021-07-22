@@ -1,22 +1,23 @@
 import axios from 'axios'
 
-export const fetch_Chat_Rooms = () => {
+
+const search_Users = (query) => {
     return async (dispatch) => {
 
-        let endpoint = process.env.REACT_APP_BACK_URL
-        let res;
+
+        const endpoint = process.env.REACT_APP_BACK_URL;
+        let response;
         try {
             dispatch({
                 type: 'SET_LOADING',
                 payload: true,
             })
-            res = await axios.get(endpoint + "/rooms", { withCredentials: true });
-            console.log(res)
-            if (res.status === 200 && res.data.length > 0) {
+            response = await axios.get(endpoint + "/users?username=" + query, { withCredentials: true });
 
+            if (response) {
                 dispatch({
-                    type: 'ADD_PREV_ROOMS',
-                    payload: res.data,
+                    type: 'ADD_SEARCH_RESULTS',
+                    payload: response.data
                 })
                 dispatch({
                     type: 'SET_LOADING',
@@ -48,4 +49,4 @@ export const fetch_Chat_Rooms = () => {
     }
 }
 
-export default { fetch_Chat_Rooms }
+export default { search_Users }
