@@ -57,7 +57,7 @@ export default function Login() {
                     <Form.Label>Name</Form.Label>
                     <Form.Control autoFocus type="name" value={firstname} onChange={(e) => setFirstName(e.target.value)} />
                 </Form.Group>
-                <Form.Group size="lg" controlId="email">
+                <Form.Group size="lg" controlId="surname">
                     <Form.Label>Surname</Form.Label>
                     <Form.Control autoFocus type="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
                 </Form.Group>

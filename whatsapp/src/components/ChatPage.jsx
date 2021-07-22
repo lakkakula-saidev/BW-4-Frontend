@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "react-chat-elements/dist/main.css";
-import { Search, ThreeDotsVertical, EmojiLaughing, Paperclip, MicFill } from "react-bootstrap-icons";
+import { Search, ThreeDotsVertical, EmojiLaughing, Paperclip } from "react-bootstrap-icons";
+import { FiSend } from "react-icons/fi"
 import { Container, Row, Form } from "react-bootstrap";
 import allActions from "../actions/index.js";
 import { useDispatch } from "react-redux";
@@ -107,7 +108,7 @@ function ChatPage(props) {
                         </Form.Group>
                     </Form>
                     <div>
-                        <MicFill size="22" />
+                        <FiSend size="22" />
                     </div>
                 </div>
             </Row>
