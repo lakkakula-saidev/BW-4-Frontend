@@ -23,7 +23,8 @@ export default function ChatItems() {
   useEffect(() => {
     axios
       .get(endpoint + "/users", { withCredentials: true })
-      .then((response) => setUsers(response.data));
+      .then((response) => {console.log(response.data);
+        setUsers(response.data.response)});
 
     // 4. Setting *dogImage* to the image url that we received from the response above
   }, []);
@@ -33,7 +34,7 @@ export default function ChatItems() {
     axios
     .get(endpoint + "/users?firstname=" + query, { withCredentials: true })
     .then((response) => {console.log(response.data);
-         setListUsers(response.data)});
+         setListUsers(response.data.response)});
 
   }
 
@@ -63,23 +64,25 @@ export default function ChatItems() {
         </Form>
       </div>
 
-      {isClicked ? (
-        <ChatList
-          className='chat-list'
-          dataSource={[
-            {
-              avatar: "https://source.unsplash.com/random",
-              alt: "Reactjs",
-              title: "{ user }",
-              subtitle: "What are you doing?",
-              date: new Date(),
-              unread: 0,
-            },
-          ]}
-        />
-      ) : (
+      {isClicked ? 
+      users.map(user =>(<ChatList
+        className='chat-list'
+        dataSource={[
+          {
+            avatar: "https://source.unsplash.com/random",
+            alt: "Reactjs",
+            title: "{ user }",
+            subtitle: "What are you doing?",
+            date: new Date(),
+            unread: 0,
+          },
+        ]}
+      />))
+      
+        
+       : 
         <Profile />
-      )}
+      }
     </div>
   );
 }
