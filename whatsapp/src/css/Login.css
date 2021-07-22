@@ -1,57 +1,52 @@
 @media all and (min-width: 480px) {
     .Login {
-      padding: 60px 0;
+        padding: 60px 0;
     }
-  
-    .Login form {
-      margin: 0 auto;
-      max-width: 320px;
-      background-color: green;
-    }
-  }
-  #root{
-    background-color: green;
-  }
 
-  .center {
+    .Login form {
+        margin: 0 auto;
+        max-width: 320px;
+        background-color: green;
+    }
+}
+
+.center {
     margin: 0;
     position: absolute;
     top: 40%;
     left: 60%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-  }
+}
 
-  .centerG {
+.centerG {
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-  }
+}
 
-  .centerL {
+.centerL {
     margin: 0;
     position: absolute;
     top: 40%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-  }
+}
 
-  .b{
+.b {
     margin-top: 5px;
     margin-left: 25px;
-  }
+}
 
-  .search{
+.search {
     border-radius: 50px !important;
     padding: 4px;
-    
-    
-  }
+}
 
-  .dov {
+.dov {
     background-color: #ededed;
-  }
+}

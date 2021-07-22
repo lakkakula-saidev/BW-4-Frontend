@@ -13,17 +13,16 @@ import axios from 'axios';
 function App() {
 
   axios.defaults.withCredentials = true
-  const user = useSelector(state => state.user.currentUser)
+  const user = useSelector(state => state.user)
 
-  if (user.currentUser && Object.keys(user.currentUser).length === 0) {
+  if (!user.currentUser._id) {
     return <Router>
-      <Route render={routerProps => <MainPage {...routerProps} />} exact path='/' />
+      <Route render={routerProps => <LoginPage {...routerProps} />} path='/' />
     </Router>
   } else {
 
     return (
       <Router>
-        <Route render={routerProps => <LoginPage {...routerProps} />} path='/login' />
         <Route render={routerProps => <MainPage {...routerProps} />} exact path='/' />
       </Router>
     );

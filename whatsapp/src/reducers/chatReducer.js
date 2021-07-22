@@ -2,13 +2,18 @@ import { initialState } from "../store";
 
 export const chatReducer = (state = initialState.chat, action) => {
 
-    console.log(action)
     switch (action.type) {
         case 'ADD_FETCH_RESULTS':
 
             return {
                 ...state,
-                chat_History: action.payload
+                chat_history: action.payload
+            }
+        case 'ADD_PREV_ROOMS':
+
+            return {
+                ...state,
+                prev_chat_rooms: action.payload
             }
         case 'SET_LOADING':
             return {
