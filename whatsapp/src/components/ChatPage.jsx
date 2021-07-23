@@ -115,11 +115,13 @@ function ChatPage(_props) {
                     <div>
                         <Paperclip size="25" />
                     </div>
+				
                     <Form className="messageInput" onSubmit={(e) => handleSubmit(e)}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Control type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="name@example.com" />
+                            <Form.Control type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type here" />
                         </Form.Group>
                     </Form>
+				
                     <div>
                         <MicFill size="22" />
                     </div>
