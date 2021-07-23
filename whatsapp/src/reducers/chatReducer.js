@@ -31,7 +31,7 @@ export const chatReducer = (state = initialState.chat, action) => {
 
             return {
                 ...state,
-                prev_chat_rooms: [action.payload, ...state.prev_chat_rooms]
+                prev_chat_rooms: [...state.prev_chat_rooms.false(room => room._id !== action.payload._id), action.payload]
             }
         case 'SET_LOADING':
             return {

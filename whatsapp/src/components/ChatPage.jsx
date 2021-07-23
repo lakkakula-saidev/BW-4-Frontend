@@ -14,6 +14,7 @@ function ChatPage(_props) {
     const chat = useSelector((store) => store.chat);
     const socket = useMemo(() => io(endpoint, { transports: ["websocket"] }), []);
     const [message, setMessage] = useState("");
+    const receiver = chat.current_chat_room.members?.filter((member) => member._id !== user.currentUser._id)[0];
     const dispatch = useDispatch();
 
     function updateScroll() {
@@ -73,8 +74,8 @@ function ChatPage(_props) {
                         </div>
                     </div>
                     <div className="chatUser">
-                        <div className="chatUser-details">{chat.current_chat_room.username ? chat.current_chat_room.username : "No room"}</div>
-                        <div className="chatUser-details">Online</div>
+                        <div className="chatUser-details">{chat.current_chat_room.members ? receiver.firstname : "No room"}</div>
+                        <div className="chatUser-details">{chat.current_chat_room.members ? "online" : ""}</div>
                     </div>
                     <div className="chatHeadIconDiv">
                         <Search size="20" />
@@ -100,8 +101,7 @@ function ChatPage(_props) {
                     ) : (
                         <div>
                             <p className="py-4 ">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, eos quo! Accusamus recusandae repudiandae, eum quae at totam culpa explicabo! Quae recusandae
-                                aliquid error pariatur in nobis animi, enim quasi.
+                                <strong>Click and Start a chat</strong>
                             </p>
                         </div>
                     )}

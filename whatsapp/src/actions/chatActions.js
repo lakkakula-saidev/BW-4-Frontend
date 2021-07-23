@@ -148,7 +148,7 @@ export const handle_current_room = (target) => {
         try {
 
             res = await axios.get(endpoint + `/rooms/${target._id}`, { withCredentials: true });
-
+            console.log(res)
             dispatch({
                 type: 'SET_CURRENT_ROOM',
                 payload: { ...res.data, _id: target._id }

@@ -52,7 +52,7 @@ export default function ChatItems() {
             <Navbar bg="light" expand="lg" className="chatItemHeader">
                 <div className="chatHeadImgDiv1" role="button">
                     <div className="chatHeadImgDiv1">
-                        <img src="https://source.unsplash.com/random" /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
+                        <img src={user.currentUser.avatar} /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
                     </div>
                 </div>
 
@@ -81,9 +81,9 @@ export default function ChatItems() {
                                                 className="chat-list"
                                                 dataSource={[
                                                     {
-                                                        avatar: "https://source.unsplash.com/random",
+                                                        avatar: item.avatar,
                                                         alt: "Reactjs",
-                                                        title: item.username,
+                                                        title: item.firstname,
                                                         subtitle: "",
                                                         date: new Date(),
                                                         unread: 0
@@ -101,7 +101,7 @@ export default function ChatItems() {
                         <>
                             <div className="userListDiv">
                                 {prevRooms && prevRooms.length > 0 ? (
-                                    prevRooms.map((room) => {
+                                    prevRooms.reverse().map((room) => {
                                         const filteredUsers = room.members?.filter((member) => member._id !== user.currentUser._id);
                                         return (
                                             <div key={room._id} id={room._id} onClick={(e) => handleOldRoom(e, room)}>
@@ -109,12 +109,10 @@ export default function ChatItems() {
                                                     className="chat-list"
                                                     dataSource={[
                                                         {
-                                                            avatar: filteredUsers?.map((item) => item._id !== user.currentUser._id)[0].avatar,
+                                                            avatar: filteredUsers[0].avatar,
                                                             alt: "Reactjs",
-                                                            title: filteredUsers?.map((user) => {
-                                                                return <div key={user._id}>{user.firstname}</div>;
-                                                            }),
-                                                            subtitle: room.chats[room.chats.length - 1]?.message,
+                                                            title: filteredUsers[0].firstname,
+                                                            subtitle: room.chatslength > 0 ? room.chats[room.chats.length - 1].message : "",
                                                             date: new Date(),
                                                             unread: 0
                                                         }
