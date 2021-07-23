@@ -50,12 +50,8 @@ export default function ChatItems() {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg" className="chatItemHeader">
-                <div className="chatHeadImgDiv1" role="button">
-                    <div className="chatHeadImgDiv1">
-                        <img src={user.currentUser.avatar} /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
-                    </div>
-                </div>
+            <Navbar bg="light" className="">
+                <img src={user.currentUser.avatar} className="rounded-circle avatar" alt="" />
 
                 <ThreeDotsVertical
                     className="chatHeadImgDiv1"

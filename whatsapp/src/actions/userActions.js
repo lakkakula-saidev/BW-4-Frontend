@@ -224,7 +224,7 @@ const update_User = (data) => {
                 type: 'SET_LOADING',
                 payload: true,
             })
-
+            console.log(data)
             res = await axios.put(endpoint + "/users/me", { ...data });
             if (typeof res.data === "object" && res.data !== null) {
 

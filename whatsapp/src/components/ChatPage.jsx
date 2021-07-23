@@ -70,7 +70,7 @@ function ChatPage(_props) {
                 <div id="chatBoxDetails">
                     <div className="" role="button">
                         <div className="chatHeadImgDiv">
-                            <img src={chat.currentUser?.avatar} /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
+                            <img src={receiver?.avatar} /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
                         </div>
                     </div>
                     <div className="chatUser">

@@ -2,10 +2,7 @@
     max-height: 100vh !important;
     padding-right: 0px !important;
 }
-body {
-    background: rgb(119, 235, 164);
-    background: linear-gradient(0deg, rgba(119, 235, 164, 1) 73%, rgba(119, 235, 164, 1) 73%);
-}
+
 .profileDiv {
     background-color: #ededed;
     display: flex;
@@ -50,9 +47,13 @@ body {
 
 .chatBody-childDiv {
     background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
-    min-height: 200px;
     padding-left: 7.5% !important;
     padding-right: 7.5% !important;
+    width: 100%;
+}
+
+.avatar {
+    object-fit: cover;
 }
 
 #scroller * {
@@ -146,8 +147,8 @@ body {
 }
 .profile-rounded-circle {
     border-radius: 50%;
-    width: 50%;
-    height: 50%;
+    width: 64px;
+    height: 64px;
 }
 
 .profileForm {

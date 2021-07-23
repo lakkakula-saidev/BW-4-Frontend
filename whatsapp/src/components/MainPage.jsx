@@ -7,14 +7,14 @@ import { withRouter } from "react-router-dom";
 
 function MainPage() {
     return (
-        <Container className="mainContainer">
-            <Row className="mainContianerRow py-4">
-                <Col className="chatList col-md-4 ">
+        <Container className="border rounded p-0 mt-3">
+            <Row>
+                <Col md={4} className="chatList d-none d-md-block">
                     <div /* onClick={() => this.props.fetch_Chat()} */>
                         <ChatItems />
                     </div>
                 </Col>
-                <Col className="chatPage col-md-8">
+                <Col xs={12} md={8} className="chatPage">
                     <ChatPage />
                 </Col>
             </Row>

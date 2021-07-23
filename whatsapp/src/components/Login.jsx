@@ -62,33 +62,35 @@ export default function Login() {
             ) : (
                 <div className="Login">
                     <Form onSubmit={handleSubmit}>
-                        <Form.Group size="lg" controlId="name">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control autoFocus type="name" value={firstname} onChange={(e) => setFirstName(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group size="lg" controlId="surname">
-                            <Form.Label>Surname</Form.Label>
-                            <Form.Control autoFocus type="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group size="lg" controlId="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control autoFocus type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group size="lg" controlId="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        </Form.Group>
+                        <div className="border border-success rounded p-2 bg-white">
+                            <Form.Group size="lg" controlId="name">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control autoFocus type="name" value={firstname} onChange={(e) => setFirstName(e.target.value)} />
+                            </Form.Group>
+                            <Form.Group size="lg" controlId="surname">
+                                <Form.Label>Surname</Form.Label>
+                                <Form.Control autoFocus type="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
+                            </Form.Group>
+                            <Form.Group size="lg" controlId="email">
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control autoFocus type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            </Form.Group>
+                            <Form.Group size="lg" controlId="password">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            </Form.Group>
+                        </div>
 
                         <Form.Group className="d-flex">
-                            <Button block className="flex-grow-1 pr-1" type="submit">
+                            <Button block variant="outline-success" className="flex-grow-1 py-2 mt-1 mr-2" type="submit">
                                 Register
                             </Button>
-                            <Button block className="flex-grow-1 pl-1" onClick={() => handleLogin()}>
+                            <Button block className="flex-grow-1 py-2 mt-1 ml-2" onClick={() => handleLogin()}>
                                 Log in
                             </Button>
                         </Form.Group>
                         <Form.Group>
-                            <Button disabled onClick={() => handleGoogleLogin()}>
+                            <Button block disabled onClick={() => handleGoogleLogin()}>
                                 Log in with Google
                             </Button>
                         </Form.Group>
