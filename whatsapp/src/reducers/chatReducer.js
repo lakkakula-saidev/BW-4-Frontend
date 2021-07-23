@@ -9,11 +9,29 @@ export const chatReducer = (state = initialState.chat, action) => {
                 ...state,
                 chat_history: action.payload
             }
+        case 'CURRENT_ROOM_CHAT':
+
+            return {
+                ...state,
+                current_chat_room: { ...state.current_chat_room, chats: state.current_chat_room.chats.concat(action.payload), _id: state.current_chat_room._id }
+            }
         case 'ADD_PREV_ROOMS':
 
             return {
                 ...state,
                 prev_chat_rooms: action.payload
+            }
+        case 'SET_CURRENT_ROOM':
+
+            return {
+                ...state,
+                current_chat_room: action.payload
+            }
+        case 'ADD_CURRENT_ROOM_REDUX':
+
+            return {
+                ...state,
+                prev_chat_rooms: [action.payload, ...state.prev_chat_rooms]
             }
         case 'SET_LOADING':
             return {

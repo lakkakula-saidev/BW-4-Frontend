@@ -12,12 +12,12 @@ const search_Users = (query) => {
                 type: 'SET_LOADING',
                 payload: true,
             })
-            response = await axios.get(endpoint + "/users?username=" + query, { withCredentials: true });
+            response = await axios.get(endpoint + "/users?username=/^" + query + "/i", { withCredentials: true });
 
             if (response) {
                 dispatch({
                     type: 'ADD_SEARCH_RESULTS',
-                    payload: response.data
+                    payload: response.data.response
                 })
                 dispatch({
                     type: 'SET_LOADING',

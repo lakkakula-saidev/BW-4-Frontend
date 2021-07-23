@@ -9,6 +9,7 @@ export default function Profile() {
     const dispatch = useDispatch();
     const [username, setUsername] = useState(user.username);
     const [surname, setSurname] = useState(user.surname);
+
     const inputFile = useRef(null);
 
     function handleSubmit(event) {
@@ -16,19 +17,23 @@ export default function Profile() {
         dispatch(allActions.userActions.update_User({ username, surname }));
     }
     function handleImageChange() {
-        console.log("heelo you should only see me once ideally");
-        inputFile.current.click();
         if (inputFile !== null) {
-            const formData = new FormData();
-            formData.append("avatar", inputFile.current.files[0]);
-            dispatch(allActions.userActions.update_Avatar(formData));
+            inputFile.current.click();
+
+            //console.log(inputFile.current.files[0]);
         }
     }
+
+    const handleFileChange = () => {
+        const formData = new FormData();
+        formData.append("avatar", inputFile.current.files[0]);
+        dispatch(allActions.userActions.update_Avatar(formData));
+    };
 
     return (
         <div className="profileDiv p-3">
             <div className="profileImgDiv" onClick={() => handleImageChange()}>
-                <input type="file" id="file" ref={inputFile} style={{ display: "none" }} />
+                <input onClick={(e) => e.stopPropagation()} type="file" id="file" ref={inputFile} style={{ display: "none" }} onChange={handleFileChange} />
                 <img type="file" src={user.avatar} /* style={{ borderRadius: "50%" }} */ className="profile-rounded-circle" alt="" />
             </div>
 

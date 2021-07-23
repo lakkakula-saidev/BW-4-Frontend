@@ -3,8 +3,8 @@
     padding-right: 0px !important;
 }
 body {
-    background: rgb(218, 219, 213);
-    background: linear-gradient(0deg, rgba(218, 219, 213, 1) 73%, rgba(0, 150, 136, 1) 73%);
+    background: rgb(119, 235, 164);
+    background: linear-gradient(0deg, rgba(119, 235, 164, 1) 73%, rgba(119, 235, 164, 1) 73%);
 }
 .profileDiv {
     background-color: #ededed;
@@ -36,6 +36,11 @@ body {
 .chatPage {
     padding-left: 0px !important;
     padding-right: 0px !important;
+}
+
+.userListDiv {
+    height: 78vh !important;
+    overflow-y: auto;
 }
 
 #chatBody {
@@ -148,4 +153,16 @@ body {
 .searchBarUsers:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+
+.messageReceived {
+    width: 60% !important;
+    background-color: white;
+    overflow-wrap: break-word;
+}
+
+.messageSent {
+    width: 60% !important;
+    background-color: #e1ffc7;
+    overflow-wrap: break-word;
 }

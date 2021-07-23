@@ -8,12 +8,12 @@ export const initialState = {
 
     user: {
         currentUser: {},
-        loading: false,
+        loading: true,
         error: false
     },
     chat: {
         prev_chat_rooms: [],
-        current_chat_room: '',
+        current_chat_room: {},
         chat_history: [],
         loading: false,
         error: false
