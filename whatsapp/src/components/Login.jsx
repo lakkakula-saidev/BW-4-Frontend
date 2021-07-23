@@ -78,25 +78,21 @@ export default function Login() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </Form.Group>
-                        <Row>
-                            <Col>
-                                <Button block size="lg" type="submit">
-                                    Register
-                                </Button>
-                            </Col>
-                            <Col>
-                                <Button block size="lg" onClick={() => handleLogin()}>
-                                    Login
-                                </Button>
-                            </Col>
-                            <Col>
-                                <Button block size="lg" onClick={() => handleGoogleLogin()}>
-                                    Login with Google
-                                </Button>
-                            </Col>
-                        </Row>
+
+                        <Form.Group className="d-flex">
+                            <Button block className="flex-grow-1 pr-1" type="submit">
+                                Register
+                            </Button>
+                            <Button block className="flex-grow-1 pl-1" onClick={() => handleLogin()}>
+                                Log in
+                            </Button>
+                        </Form.Group>
+                        <Form.Group>
+                            <Button disabled onClick={() => handleGoogleLogin()}>
+                                Log in with Google
+                            </Button>
+                        </Form.Group>
                     </Form>
-                    <Row className="justify-content-md-center"></Row>
                 </div>
             )}
         </>

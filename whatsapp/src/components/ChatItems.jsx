@@ -22,6 +22,7 @@ export default function ChatItems() {
     const [new_click, setNew_click] = useState(true);
     const [query, setQuery] = useState("");
 
+    const revList = prevRooms.reverse();
     useEffect(() => {
         axios.get(endpoint + "/users", { withCredentials: true }).then((response) => setUsers(response.data));
         dispatch(allActions.chatActions.fetch_Chat_Rooms());
