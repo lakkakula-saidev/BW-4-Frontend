@@ -106,7 +106,9 @@ body {
 .messageInput {
     position: relative;
     top: 22.5%;
+    right: 30%;
     flex-grow: 1;
+    margin: -150px;
 }
 
 .chatHeadImgDiv {
@@ -165,4 +167,7 @@ body {
     width: 60% !important;
     background-color: #e1ffc7;
     overflow-wrap: break-word;
+}
+.profileImgDiv1 {
+    width: 15%;
 }

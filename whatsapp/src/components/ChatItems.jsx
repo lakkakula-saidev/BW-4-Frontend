@@ -52,18 +52,16 @@ export default function ChatItems() {
             <Navbar bg="light" expand="lg" className="chatItemHeader">
                 <div className="chatHeadImgDiv1" role="button">
                     <div className="chatHeadImgDiv1">
-                        <img
-                            onClick={() => {
-                                isClicked ? setisClicked(false) : setisClicked(true);
-                            }}
-                            src="https://source.unsplash.com/random"
-                            /* style={{ borderRadius: "50%" }} */ className="rounded-circle"
-                            alt=""
-                        />
+                        <img src="https://source.unsplash.com/random" /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
                     </div>
                 </div>
 
-                <ThreeDotsVertical className="chatHeadImgDiv1" />
+                <ThreeDotsVertical
+                    className="chatHeadImgDiv1"
+                    onClick={() => {
+                        isClicked ? setisClicked(false) : setisClicked(true);
+                    }}
+                />
             </Navbar>
 
             {isClicked ? (
