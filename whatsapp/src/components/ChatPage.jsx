@@ -23,7 +23,7 @@ function ChatPage(_props) {
 
     useEffect(
         () => {
-            updateScroll();
+            /* ss */
             console.log("adding event listeners");
             socket.on("connect", () => {
                 // with on we're listening for an event
@@ -85,7 +85,7 @@ function ChatPage(_props) {
                 </div>
             </Row>
             <Row className="chatRow" id="chatBody">
-                <div className="chatBody-childDiv py-2 ">
+                <div className="chatBody-childDiv py-2">
                     {chat.current_chat_room.chats?.length > 0 ? (
                         chat.current_chat_room.chats.map((chat) => {
                             return (

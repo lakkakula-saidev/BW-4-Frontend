@@ -55,6 +55,15 @@ body {
     padding-right: 7.5% !important;
 }
 
+#scroller * {
+    overflow-anchor: none;
+}
+
+#anchor {
+    overflow-anchor: auto;
+    height: 1px;
+}
+
 #chatBoxDetails {
     position: relative;
     z-index: 1000;
@@ -106,9 +115,7 @@ body {
 .messageInput {
     position: relative;
     top: 22.5%;
-    right: 30%;
     flex-grow: 1;
-    margin: -150px;
 }
 
 .chatHeadImgDiv {
