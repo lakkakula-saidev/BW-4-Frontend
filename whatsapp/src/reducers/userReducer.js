@@ -3,7 +3,7 @@ import { initialState } from "../store";
 export const userReducer = (state = initialState.user, action) => {
 
     switch (action.type) {
-        case 'SET_USER':
+        case 'SET_USER': // no update user? no need i guess
 
             return {
                 ...state,

@@ -1,6 +1,7 @@
+import axios from "axios";
 import React from "react";
 import { useState, useRef } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import allActions from "../actions/index.js";
 
@@ -31,6 +32,11 @@ export default function Profile() {
         dispatch(allActions.userActions.update_Avatar(formData));
     };
 
+    const handleLogout = async () => {
+        await axios.post(process.env.REACT_APP_BACK_URL + "/users/logout", { withCredentials: true });
+        window.location.reload();
+    };
+
     return (
         <div className="profileDiv py-3 border rounded">
             <div className="" onClick={() => handleImageChange()}>
@@ -52,9 +58,14 @@ export default function Profile() {
                     <Form.Control type="text" value={surname} onChange={(e) => setSurname(e.target.value)} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <Row className="justify-content-between px-3">
+                    <Button className="flex-grow-1 mr-2" variant="outline-warning" type="submit">
+                        Update
+                    </Button>
+                    <Button className="flex-grow-1 ml-2" variant="outline-danger" onClick={() => handleLogout()}>
+                        Log Out
+                    </Button>
+                </Row>
             </Form>
         </div>
     );
