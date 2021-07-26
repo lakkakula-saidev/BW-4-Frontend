@@ -20,7 +20,7 @@ export const fetch_Chat_Rooms = () => {
                 })
                 dispatch({
                     type: 'SET_LOADING',
-                    payload: false,
+                    payload: res.data,
                 })
             }
             else {
@@ -59,11 +59,15 @@ export const fetch_new_chat_rooms = (data) => {
                 payload: true,
             })
             res = await axios.post(endpoint + "/rooms", data, { withCredentials: true });
-
+            console.log(res)
             if (res.status === 200 || res.status === 201) {
 
                 dispatch({
                     type: 'ADD_CURRENT_ROOM_REDUX',
+                    payload: res.data,
+                })
+                dispatch({
+                    type: 'SET_CURRENT_ROOM',
                     payload: res.data,
                 })
             }

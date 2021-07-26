@@ -3,11 +3,25 @@
     padding-right: 0px !important;
 }
 
+.spinnerCenter {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
 .profileDiv {
     background-color: #ededed;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.mt-5 {
+    margin-top: 8rem !important;
+}
+
+.px-6 {
+    padding-left: 6rem !important;
 }
 
 .mainContianerRow {

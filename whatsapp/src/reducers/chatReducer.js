@@ -2,6 +2,7 @@ import { initialState } from "../store";
 
 export const chatReducer = (state = initialState.chat, action) => {
 
+
     switch (action.type) {
         case 'ADD_FETCH_RESULTS':
 
@@ -28,10 +29,10 @@ export const chatReducer = (state = initialState.chat, action) => {
                 current_chat_room: action.payload
             }
         case 'ADD_CURRENT_ROOM_REDUX':
-
+            console.log(action.payload)
             return {
                 ...state,
-                prev_chat_rooms: [...state.prev_chat_rooms.false(room => room._id !== action.payload._id), action.payload]
+                prev_chat_rooms: [...state.prev_chat_rooms.filter(room => room._id !== action.payload._id), action.payload]
             }
         case 'SET_LOADING':
             return {

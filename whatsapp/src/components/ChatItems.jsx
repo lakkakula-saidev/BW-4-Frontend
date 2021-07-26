@@ -100,6 +100,7 @@ export default function ChatItems() {
                                 {prevRooms && prevRooms.length > 0 ? (
                                     prevRooms.reverse().map((room) => {
                                         const filteredUsers = room.members?.filter((member) => member._id !== user.currentUser._id);
+                                        console.log(filteredUsers);
                                         return (
                                             <div key={room._id} id={room._id} onClick={(e) => handleOldRoom(e, room)}>
                                                 <ChatList
