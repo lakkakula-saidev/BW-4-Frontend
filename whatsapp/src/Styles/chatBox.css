@@ -1,12 +1,39 @@
 .mainContainer {
-    max-height: 100vh !important;
-    padding-right: 0px !important;
+    height: 100vh !important;
+    /*padding-right: 0px !important; */
+    background: rgb(218, 219, 213);
+    background: linear-gradient(0deg, rgba(218, 219, 213, 1) 80%, rgba(0, 150, 136, 1) 80%);
+    margin: 0;
 }
 
 .spinnerCenter {
     position: absolute;
     left: 50%;
     top: 50%;
+}
+
+/* width */
+#style-3::-webkit-scrollbar {
+    width: 5px;
+    z-index: 1000;
+}
+
+/* Track */
+#style-3::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    z-index: 1000;
+}
+
+/* Handle */
+#style-3::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    visibility: visible;
+}
+
+/* Handle on hover */
+#style-3::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .profileDiv {
@@ -24,7 +51,7 @@
     padding-left: 6rem !important;
 }
 
-.mainContianerRow {
+.mainContainerRow {
     height: 90vh !important;
 }
 
@@ -52,6 +79,7 @@
 .userListDiv {
     height: 78vh !important;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #chatBody {
@@ -83,8 +111,6 @@
     position: relative;
     z-index: 1000;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     width: 100%;
     background-color: #ededed;
@@ -133,15 +159,8 @@
     flex-grow: 1;
 }
 
-.chatHeadImgDiv {
-    width: 10%;
-}
-
 .profileImgDiv {
     width: 40%;
-}
-.chatHeadIconDiv {
-    width: 10%;
 }
 
 .rounded-circle {
@@ -170,7 +189,7 @@
 }
 
 .chatItemBody {
-    height: 85vh !important;
+    height: 84.5vh !important;
     background-color: white;
 }
 
@@ -192,4 +211,27 @@
 }
 .profileImgDiv1 {
     width: 15%;
+}
+
+.style-3::-webkit-scrollbar {
+    width: 5px;
+    z-index: 1000;
+}
+
+/* Track */
+.style-3::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    z-index: 1000;
+}
+
+/* Handle */
+.style-3::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    visibility: visible;
+}
+
+/* Handle on hover */
+.style-3::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

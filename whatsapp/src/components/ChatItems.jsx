@@ -4,12 +4,13 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "../css/Login.css";
 import { Navbar, Form } from "react-bootstrap";
-import { ThreeDotsVertical } from "react-bootstrap-icons";
+import { ThreeDotsVertical, Search as SearchIcon } from "react-bootstrap-icons";
 import Profile from "./Profile";
 import "../Styles/chatBox.css";
 import "../css/Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import allActions from "../actions/index";
+
 const endpoint = process.env.REACT_APP_BACK_URL;
 export default function ChatItems() {
     const user = useSelector((state) => state.user);
@@ -50,10 +51,11 @@ export default function ChatItems() {
 
     return (
         <div>
-            <Navbar bg="light" className="">
+            <Navbar bg="light" className="d-flex justify-content-between align-items-center">
                 <img src={user.currentUser.avatar} className="rounded-circle avatar" alt="" />
 
                 <ThreeDotsVertical
+                    size="20"
                     className="chatHeadImgDiv1"
                     onClick={() => {
                         isClicked ? setisClicked(false) : setisClicked(true);
@@ -64,13 +66,14 @@ export default function ChatItems() {
             {isClicked ? (
                 <div className="chatItemBody">
                     <div className="dov">
+                        <SearchIcon />
                         <Form className="search">
-                            <Form.Control type="query" className="searchBarUsers" style={{ border: "none" }} value={query} onChange={(e) => Search(e)} />
+                            <Form.Control type="query" className="rounded-pill searchBarUsers" style={{ border: "none" }} value={query} onChange={(e) => Search(e)} />
                         </Form>
                     </div>
                     {query.length !== 0 ? (
                         new_click && (
-                            <div className="userListDiv">
+                            <div className="userListDiv" id="style-3">
                                 {searchUsers && searchUsers.length > 0 ? (
                                     searchUsers.map((item) => (
                                         <div key={item._id} id={item._id} onClick={(e) => handleStartChat(e, item)}>
@@ -96,7 +99,7 @@ export default function ChatItems() {
                         )
                     ) : (
                         <>
-                            <div className="userListDiv">
+                            <div className="userListDiv" id="style-3">
                                 {prevRooms && prevRooms.length > 0 ? (
                                     prevRooms.reverse().map((room) => {
                                         const filteredUsers = room.members?.filter((member) => member._id !== user.currentUser._id);

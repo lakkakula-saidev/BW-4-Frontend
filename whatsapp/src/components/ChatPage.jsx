@@ -67,25 +67,30 @@ function ChatPage(_props) {
     return (
         <Container className="mainContianer-chat">
             <Row className="chatRow chatHeader">
-                <div id="chatBoxDetails">
-                    <div className="" role="button">
-                        <div className="chatHeadImgDiv">
+                <div id="chatBoxDetails" className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex justify-content-start align-items-center" role="button">
+                        <div className="chatHeadImgDiv px-2">
                             <img src={receiver?.avatar} /* style={{ borderRadius: "50%" }} */ className="rounded-circle" alt="" />
                         </div>
+                        <div className="chatUser">
+                            <div className="">{chat.current_chat_room.members ? receiver.firstname : "No room"}</div>
+                            <div className="text-muted" style={{ fontSize: "14px" }}>
+                                {chat.current_chat_room.members ? "online" : ""}
+                            </div>
+                        </div>
                     </div>
-                    <div className="chatUser">
-                        <div className="chatUser-details">{chat.current_chat_room.members ? receiver.firstname : "No room"}</div>
-                        <div className="chatUser-details">{chat.current_chat_room.members ? "online" : ""}</div>
-                    </div>
-                    <div className="chatHeadIconDiv">
-                        <Search size="20" />
-                    </div>
-                    <div className="chatHeadIconDiv">
-                        <ThreeDotsVertical size="20" />
+
+                    <div className="d-flex justify-content-between">
+                        <div className="px-1">
+                            <Search size="20" />
+                        </div>
+                        <div className="px-3">
+                            <ThreeDotsVertical size="20" />
+                        </div>
                     </div>
                 </div>
             </Row>
-            <Row className="chatRow" id="chatBody">
+            <Row className="chatRow style-3" id="chatBody">
                 <div className="chatBody-childDiv py-2">
                     {chat.current_chat_room.chats?.length > 0 ? (
                         chat.current_chat_room.chats.map((chat) => {
@@ -115,13 +120,13 @@ function ChatPage(_props) {
                     <div>
                         <Paperclip size="25" />
                     </div>
-				
+
                     <Form className="messageInput" onSubmit={(e) => handleSubmit(e)}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Control type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type here" />
+                            <Form.Control type="text" className="rounded-pill" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message" />
                         </Form.Group>
                     </Form>
-				
+
                     <div>
                         <MicFill size="22" />
                     </div>
